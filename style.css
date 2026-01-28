@@ -1,0 +1,54 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f6f6f6}
+
+.top{
+  background:#131921;color:#fff;padding:10px
+}
+.top h1{margin:0;font-size:20px}
+.top input{
+  width:100%;padding:8px;margin-top:8px;border-radius:4px;border:none
+}
+
+.cats{
+  display:flex;overflow:auto;background:#fff;padding:8px
+}
+.cats button{
+  margin-right:6px;padding:6px 10px;border:1px solid #ddd;background:#fff;border-radius:20px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  padding:10px
+}
+
+.card{
+  background:#fff;border-radius:6px;position:relative;
+  box-shadow:0 2px 6px rgba(0,0,0,.1)
+}
+.card img{width:100%;border-radius:6px 6px 0 0}
+.tag{
+  position:absolute;top:6px;left:6px;
+  background:#e53935;color:#fff;font-size:12px;padding:2px 6px;border-radius:4px
+}
+.heart{
+  position:absolute;top:6px;right:6px;font-size:18px
+}
+.info{padding:8px}
+.info h4{margin:0 0 4px 0;font-size:14px}
+.price{
+  font-size:14px
+}
+.price del{color:#777;margin-left:4px}
+.price span{color:green;margin-left:4px}
+
+.bottom{
+  position:sticky;bottom:0;
+  background:#fff;padding:10px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid #ddd
+}
+.bottom button{
+  background:#25D366;color:#fff;border:none;padding:8px 12px;border-radius:4px
+}
