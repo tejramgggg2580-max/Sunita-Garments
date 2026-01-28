@@ -28,7 +28,13 @@ function save(){
 
   const reader = new FileReader();
   reader.onload = () => {
-    const item = {name, cat, price, old, img: reader.result};
+    const item = {
+  name: name,
+  cat: cat,
+  price: price,
+  old: old,
+  img: reader.result
+};
 
     if(editIndex > -1){
       products[editIndex] = item;
@@ -51,14 +57,14 @@ function save(){
 
 function render(){
   const list = document.getElementById("list");
-  list.innerHTML="";
-  products.forEach((p,i)=>{
-    list.innerHTML += `
-      <div class="list">
-        ${p.name} - ₹${p.price}
-        <button onclick="edit(${i})">Edit</button>
-        <button onclick="del(${i})">Delete</button>
-      </div>
+  list.innerHTML += `
+  <div class="list">
+    <img src="${p.img}" style="width:60px;border-radius:6px">
+    <b>${p.name}</b> - ₹${p.price}
+    <button onclick="edit(${i})">Edit</button>
+    <button onclick="del(${i})">Delete</button>
+  </div>
+`;
     `;
   });
 }
