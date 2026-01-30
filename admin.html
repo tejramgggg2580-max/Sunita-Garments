@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial;text-align:center;padding:20px}
+    input,button{padding:10px;margin:5px;width:90%}
+    .box{max-width:400px;margin:auto}
+  </style>
 </head>
-<body style="font-family:Arial;text-align:center;margin-top:40px">
-  <h2>🔐 Admin Panel</h2>
+<body>
 
-  <input id="pass" placeholder="Password">
+<div class="box" id="loginBox">
+  <h2>🔐 Admin Login</h2>
+  <input id="pass" placeholder="Enter Password">
   <button onclick="login()">Login</button>
+  <p id="msg"></p>
+</div>
 
-  <script>
-    function login(){
-      if(document.getElementById("pass").value === "teju9982"){
-        alert("Login Success ✅");
-      } else {
-        alert("Wrong Password ❌");
-      }
-    }
-  </script>
+<div class="box" id="panel" style="display:none">
+  <h2>🛍 Add Product</h2>
+
+  <input id="name" placeholder="Product Name">
+  <input id="cat" placeholder="Category (Dresses/Tops)">
+  <input id="price" placeholder="Selling Price">
+  <input id="old" placeholder="Old Price">
+  <input id="img" placeholder="Image URL">
+
+  <button onclick="add()">Add Product</button>
+  <p id="done"></p>
+</div>
+
+<script src="admin.js"></script>
 </body>
 </html>
