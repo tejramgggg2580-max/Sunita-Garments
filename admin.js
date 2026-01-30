@@ -1,35 +1,26 @@
 const PASSWORD = "teju9982";
-const STORAGE_KEY = "SUNITA_PRODUCTS";
 
 function login(){
-  if(document.getElementById("pass").value === PASSWORD){
-    document.getElementById("login").style.display="none";
+  const p = document.getElementById("pass").value;
+  if(p === PASSWORD){
+    document.getElementById("loginBox").style.display="none";
     document.getElementById("panel").style.display="block";
-  } else {
-    alert("Wrong password");
+  }else{
+    document.getElementById("msg").innerText="❌ Wrong password";
   }
 }
 
 function add(){
-  let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  let products = JSON.parse(localStorage.getItem("products")) || [];
 
-  let p = {
-    name: name.value.trim(),
-    category: cat.value.trim(),
-    price: price.value.trim(),
-    old: old.value.trim(),
-    image: img.value.trim()
-  };
+  products.push({
+    name: name.value,
+    cat: cat.value,
+    price: price.value,
+    old: old.value,
+    img: img.value
+  });
 
-  if(!p.name || !p.price || !p.image){
-    alert("Name, price & image required");
-    return;
-  }
-
-  data.push(p);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-
-  msg.innerText = "✅ Product added";
-
-  name.value = cat.value = price.value = old.value = img.value = "";
+  localStorage.setItem("products", JSON.stringify(products));
+  document.getElementById("done").innerText="✅ Product Added";
 }
