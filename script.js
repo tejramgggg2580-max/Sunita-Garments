@@ -1,10 +1,12 @@
 const list = document.getElementById("product-list");
 const search = document.getElementById("search");
+const STORAGE_KEY = "SUNITA_PRODUCTS";
 
-let products = JSON.parse(localStorage.getItem("SUN_PRODUCTS")) || [];
+let products = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 function render(arr){
   list.innerHTML = "";
+
   if(arr.length === 0){
     list.innerHTML = "<p style='text-align:center'>No products</p>";
     return;
@@ -30,21 +32,21 @@ function render(arr){
 render(products);
 
 function filterCat(cat){
-  if(cat==="All") render(products);
-  else render(products.filter(p=>p.category===cat));
+  if(cat === "All") render(products);
+  else render(products.filter(p => p.category === cat));
 }
 
 if(search){
   search.oninput = ()=>{
     let v = search.value.toLowerCase();
-    render(products.filter(p=>p.name.toLowerCase().includes(v)));
+    render(products.filter(p => p.name.toLowerCase().includes(v)));
   }
 }
 
-function order(name,price){
+function order(name, price){
   window.open(
     `https://wa.me/919982104506?text=${encodeURIComponent(
-      "Hello, I want to order:\n"+name+"\nPrice: ₹"+price
+      "Hello, I want to order:\n" + name + "\nPrice: ₹" + price
     )}`,
     "_blank"
   );
