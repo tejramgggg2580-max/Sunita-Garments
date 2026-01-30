@@ -1,36 +1,29 @@
-const WHATSAPP = "919982104506";
+const productList = document.getElementById("product-list");
 
-let currentCat = "All";
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
-const grid = document.getElementById("grid");
-const search = document.getElementById("search");
-
-function show(){
-  grid.innerHTML="";
-  products
-    .filter(p =>
-      (currentCat==="All" || p.cat===currentCat) &&
-      p.name.toLowerCase().includes(search.value.toLowerCase())
-    )
-    .forEach(p=>{
-      grid.innerHTML += `
-      <div class="card">
-        <img src="${p.img}">
-        <h4>${p.name}</h4>
-        <p>₹${p.price} <del>₹${p.old}</del></p>
-      </div>`;
-    });
+if(products.length === 0){
+  productList.innerHTML = "<p>No products available</p>";
 }
 
-function filterCat(c){
-  currentCat=c;
-  show();
-}
+products.forEach((p, index) => {
+  const div = document.createElement("div");
+  div.style.border = "1px solid #ccc";
+  div.style.margin = "10px";
+  div.style.padding = "10px";
 
-function orderWA(){
-  window.open(`https://wa.me/${WHATSAPP}?text=Hello Sunita Garments, I want to order`);
-}
+  div.innerHTML = `
+    <img src="${p.img}" style="width:100%;max-height:200px;object-fit:cover">
+    <h3>${p.name}</h3>
+    <p>${p.cat}</p>
+    <p>
+      <b>₹${p.price}</b>
+      <del>₹${p.old}</del>
+    </p>
+    <a href="https://wa.me/919982104506?text=I want ${p.name}">
+      <button>Order on WhatsApp</button>
+    </a>
+  `;
 
-search.oninput = show;
-show();
+  productList.appendChild(div);
+});
