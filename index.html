@@ -1,23 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Sunita Garments</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{font-family:Arial;margin:0;background:#f5f5f5}
-header{background:#000;color:#fff;padding:15px}
-header input{width:100%;padding:10px;margin-top:10px}
-.cats{padding:10px;text-align:center}
-.cats button{margin:5px;padding:8px}
-#product-list{padding:10px}
-.card{background:#fff;margin-bottom:10px;padding:10px;border-radius:5px}
-.card img{width:100%;max-height:250px;object-fit:cover}
-.card button{width:100%;padding:10px;background:green;color:#fff;border:none}
-del{color:#888;margin-left:10px}
-</style>
+  <meta charset="UTF-8">
+  <title>Sunita Garments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -32,7 +20,9 @@ del{color:#888;margin-left:10px}
   <button onclick="filterCat('Salwar Suit')">Salwar Suit</button>
 </div>
 
-<div id="product-list"></div>
+<div id="grid"></div>
+
+<button class="wa" onclick="orderWA()">Order on WhatsApp</button>
 
 <script src="script.js"></script>
 </body>
