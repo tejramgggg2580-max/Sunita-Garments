@@ -1,53 +1,36 @@
-const list = document.getElementById("product-list");
+const WHATSAPP = "919982104506";
+
+let currentCat = "All";
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+const grid = document.getElementById("grid");
 const search = document.getElementById("search");
-const STORAGE_KEY = "SUNITA_PRODUCTS";
 
-let products = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-
-function render(arr){
-  list.innerHTML = "";
-
-  if(arr.length === 0){
-    list.innerHTML = "<p style='text-align:center'>No products</p>";
-    return;
-  }
-
-  arr.forEach(p=>{
-    list.innerHTML += `
+function show(){
+  grid.innerHTML="";
+  products
+    .filter(p =>
+      (currentCat==="All" || p.cat===currentCat) &&
+      p.name.toLowerCase().includes(search.value.toLowerCase())
+    )
+    .forEach(p=>{
+      grid.innerHTML += `
       <div class="card">
-        <img src="${p.image}">
-        <h3>${p.name}</h3>
-        <p>
-          ₹${p.price}
-          ${p.old ? `<del>₹${p.old}</del>` : ""}
-        </p>
-        <button onclick="order('${p.name}','${p.price}')">
-          Order on WhatsApp
-        </button>
-      </div>
-    `;
-  });
+        <img src="${p.img}">
+        <h4>${p.name}</h4>
+        <p>₹${p.price} <del>₹${p.old}</del></p>
+      </div>`;
+    });
 }
 
-render(products);
-
-function filterCat(cat){
-  if(cat === "All") render(products);
-  else render(products.filter(p => p.category === cat));
+function filterCat(c){
+  currentCat=c;
+  show();
 }
 
-if(search){
-  search.oninput = ()=>{
-    let v = search.value.toLowerCase();
-    render(products.filter(p => p.name.toLowerCase().includes(v)));
-  }
+function orderWA(){
+  window.open(`https://wa.me/${WHATSAPP}?text=Hello Sunita Garments, I want to order`);
 }
 
-function order(name, price){
-  window.open(
-    `https://wa.me/919982104506?text=${encodeURIComponent(
-      "Hello, I want to order:\n" + name + "\nPrice: ₹" + price
-    )}`,
-    "_blank"
-  );
-}
+search.oninput = show;
+show();
