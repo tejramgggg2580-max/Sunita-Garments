@@ -1,52 +1,53 @@
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
+
 const products = [
   {
-    category: "Dresses",
     name: "Designer Dress",
-    oldPrice: 1999,
-    price: 999,
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990",
+    category: "Dresses",
+    oldPrice: 2999,
+    price: 1499,
+    img: "https://images.unsplash.com/photo-1520975698519-59c1fdb9a1f7"
   },
   {
-    category: "Tops",
-    name: "Stylish Top",
-    oldPrice: 1499,
-    price: 699,
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38",
-  },
-  {
+    name: "Cotton Salwar Suit",
     category: "Salwar Suit",
-    name: "Salwar Suit",
     oldPrice: 2499,
     price: 1299,
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf",
-  },
+    img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990"
+  }
 ];
-
-const grid = document.getElementById("grid");
 
 function showProducts(list) {
   grid.innerHTML = "";
   list.forEach(p => {
+    const wa = `https://wa.me/919982104506?text=I want to order ${p.name} at Rs ${p.price}`;
+    const upi = `upi://pay?pa=tamilsunita51@okhdfcbank&pn=Sunita Garments&am=${p.price}&cu=INR`;
+
     grid.innerHTML += `
       <div class="card">
-        <img src="${p.image}">
+        <img src="${p.img}">
         <h4>${p.name}</h4>
         <div class="price">
-          <del>₹${p.oldPrice}</del>
-          <span>₹${p.price}</span>
+          <del>₹${p.oldPrice}</del> <span>₹${p.price}</span>
         </div>
-        <div class="btn-group">
-          <a class="btn wa" href="https://wa.me/919982104506?text=I want to order ${p.name}" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-            WhatsApp
-          </a>
-          <a class="btn upi" href="upi://pay?pa=tamilsunita51@okhdfcbank&pn=Sunita Garments&am=${p.price}">
-            Pay
-          </a>
+        <div class="actions">
+          <a class="whatsapp" href="${wa}">WhatsApp</a>
+          <div class="upi" onclick="location.href='${upi}'">UPI</div>
         </div>
       </div>
     `;
   });
 }
+
+function filterCat(cat) {
+  if (cat === "All") showProducts(products);
+  else showProducts(products.filter(p => p.category === cat));
+}
+
+search.addEventListener("input", () => {
+  const v = search.value.toLowerCase();
+  showProducts(products.filter(p => p.name.toLowerCase().includes(v)));
+});
 
 showProducts(products);
