@@ -21,17 +21,29 @@ function show(){
   }
 
   filtered.forEach(p=>{
-    grid.innerHTML += `
-      <div class="card">
-        <img src="${p.img}" alt="${p.name}">
-        <h4>${p.name}</h4>
-        <p>₹${p.price} <del>₹${p.old || ""}</del></p>
-        <button onclick="singleWA('${p.name}','${p.price}')">
-          Order on WhatsApp
-        </button>
-      </div>`;
-  });
-}
+  grid.innerHTML += `
+  <div class="card">
+    <img src="${p.img}" alt="${p.name}">
+    <h4>${p.name}</h4>
+
+    <p>
+      ₹${p.price}
+      <del style="color:#888; font-size:12px;">
+        ₹${p.old || ""}
+      </del>
+    </p>
+
+    <button onclick="singleWA('${p.name}','${p.price}')"
+      style="background:#25D366;color:white;padding:10px;width:100%;border:none;border-radius:6px;">
+      Order on WhatsApp
+    </button>
+
+    <button onclick="buyNow('${p.name}','${p.price}')"
+      style="margin-top:8px;background:#ff3f6c;color:white;padding:10px;width:100%;border:none;border-radius:6px;">
+      Buy Now
+    </button>
+  </div>`;
+});
 
 function filterCat(cat){
   currentCat = cat;
