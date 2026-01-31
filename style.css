@@ -1,87 +1,59 @@
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
-body {
-  background: #f5f5f5;
+header {
+  background: #111;
+  color: #fff;
   padding: 10px;
 }
 
-/* ===== HEADER ===== */
-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-header h2 {
-  margin-bottom: 6px;
-}
-
-#search {
+header input {
   width: 100%;
   padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  margin-top: 8px;
 }
 
-/* ===== CATEGORY BUTTONS ===== */
 .cats {
+  padding: 10px;
   display: flex;
-  gap: 6px;
-  margin: 10px 0;
-  overflow-x: auto;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .cats button {
-  padding: 6px 10px;
+  padding: 6px 12px;
   border: none;
   background: #333;
-  color: white;
+  color: #fff;
   border-radius: 5px;
-  font-size: 13px;
-  cursor: pointer;
 }
 
-/* ===== GRID ===== */
 #grid {
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 10px;
 }
 
-/* ===== CARD ===== */
 .card {
-  background: white;
-  border-radius: 10px;
+  background: #fff;
+  border-radius: 8px;
   padding: 8px;
-  overflow: hidden;
 }
 
-/* IMAGE FIX */
 .card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
-
-/* ===== TEXT ===== */
-.card h4 {
-  font-size: 14px;
-  margin: 6px 0 4px;
-}
-
-.price {
-  font-size: 13px;
+  border-radius: 6px;
 }
 
 .price del {
-  color: #999;
-  margin-right: 4px;
+  color: gray;
+  font-size: 13px;
 }
 
 .price span {
@@ -89,35 +61,29 @@ header h2 {
   font-weight: bold;
 }
 
-/* ===== BUTTONS ===== */
-.btn-group {
+.actions {
   display: flex;
   gap: 6px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
-.btn {
+.whatsapp {
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 7px;
-  font-size: 12px;
+  background: #25D366;
   color: white;
+  padding: 6px;
+  text-align: center;
   border-radius: 6px;
   text-decoration: none;
-}
-
-.btn img {
-  width: 16px;
-  height: 16px;
-}
-
-.wa {
-  background: #25D366;
+  font-size: 13px;
 }
 
 .upi {
+  flex: 1;
   background: #673ab7;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 13px;
 }
