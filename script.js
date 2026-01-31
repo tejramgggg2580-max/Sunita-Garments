@@ -74,3 +74,34 @@ function addToCart(product){
   localStorage.setItem("cart", JSON.stringify(cart));
   alert("🛒 Product cart me add ho gaya");
 }
+/************** AUTO SAFE SYSTEM **************/
+
+// hide products without image
+products = products.filter(p => p.image && p.image.trim() !== "");
+
+// CART SYSTEM
+function addToCart(product){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Product cart me add ho gaya");
+}
+
+// CREATE CART BUTTON AUTO
+document.addEventListener("DOMContentLoaded", ()=>{
+  document.querySelectorAll(".card").forEach((card, i)=>{
+    let btn = document.createElement("button");
+    btn.innerText = "Add to Cart";
+    btn.style.marginTop = "8px";
+
+    btn.onclick = ()=>{
+      let img = card.querySelector("img")?.src;
+      let name = card.querySelector("h4")?.innerText;
+      let price = card.querySelector("p")?.innerText.replace("₹","");
+
+      addToCart({name, price, image: img});
+    };
+
+    card.appendChild(btn);
+  });
+});
