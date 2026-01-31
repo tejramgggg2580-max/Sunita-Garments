@@ -1,3 +1,5 @@
+// ❌ no-image products hide
+products = products.filter(p => p.image && p.image.trim() !== "");
 const WHATSAPP = "919982104506";
 
 let products = JSON.parse(localStorage.getItem("products")) || [];
