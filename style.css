@@ -95,10 +95,3 @@ header input{
   font-size:16px;
   border-radius:10px;
 }
-.profile-pic{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:8px;
-  }
