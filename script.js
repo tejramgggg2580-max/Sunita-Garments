@@ -1,3 +1,4 @@
+const UPI_ID = "tamilsunita51@okhdfcbank";
 const WHATSAPP = "919982104506";
 
 let products = JSON.parse(localStorage.getItem("products")) || [];
@@ -65,3 +66,13 @@ function singleWA(name, price){
 }
 
 show();
+function generateQR(amount) {
+  let upiURL = `upi://pay?pa=${UPI_ID}&pn=Sunita%20Garments&am=${amount}&cu=INR`;
+
+  document.getElementById("qrBox").innerHTML = `
+    <h3>Scan & Pay</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiURL)}">
+    <p>UPI ID: ${UPI_ID}</p>
+    <p>Amount: ₹${amount}</p>
+  `;
+}
