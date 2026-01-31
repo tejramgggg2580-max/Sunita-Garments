@@ -1,67 +1,58 @@
-const WHATSAPP = "919982104506";
-
-let products = JSON.parse(localStorage.getItem("products")) || [];
-let currentCat = "All";
-
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
 
-function show(){
-  grid.innerHTML = "";
-
-  const filtered = products.filter(p =>
-    (currentCat === "All" || p.cat === currentCat) &&
-    p.name.toLowerCase().includes(search.value.toLowerCase())
-  );
-
-  if(filtered.length === 0){
-    grid.innerHTML = "<p style='text-align:center'>No products found</p>";
-    return;
+const products = [
+  {
+    category: "Dresses",
+    name: "Designer Dress",
+    price: 1499,
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
+  },
+  {
+    category: "Salwar Suit",
+    name: "Salwar Suit",
+    price: 1799,
+    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990"
+  },
+  {
+    category: "Tops",
+    name: "Stylish Top",
+    price: 899,
+    image: "https://images.unsplash.com/photo-1618354691295-3d0d2e8f03e7"
   }
+];
 
-  filtered.forEach(p=>{
+function showProducts(list) {
+  grid.innerHTML = "";
+  list.forEach(p => {
     grid.innerHTML += `
       <div class="card">
-        <img src="${p.img}" alt="${p.name}">
+        <img src="${p.image}">
         <h4>${p.name}</h4>
-        <p>₹${p.price} <del>₹${p.old || ""}</del></p>
-        <button onclick="singleWA('${p.name}','${p.price}')">
-          Order on WhatsApp
-        </button>
-      </div>`;
+        <p>₹${p.price}</p>
+      </div>
+    `;
   });
 }
 
-function filterCat(cat){
-  currentCat = cat;
-  show();
-}
+showProducts(products);
 
-search.addEventListener("input", show);
-
-function orderWA(){
-  if(products.length === 0){
-    alert("No products available");
-    return;
+function filterCat(cat) {
+  if (cat === "All") {
+    showProducts(products);
+  } else {
+    showProducts(products.filter(p => p.category === cat));
   }
-
-  let msg = "Hello Sunita Garments,\nI want to order:\n";
-  products.forEach(p=>{
-    msg += `- ${p.name} : ₹${p.price}\n`;
-  });
-
-  window.open(
-    "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
 }
 
-function singleWA(name, price){
-  const msg = `Hello Sunita Garments,\nI want to order:\n${name}\nPrice: ₹${price}`;
-  window.open(
-    "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
-}
+search.addEventListener("input", () => {
+  const val = search.value.toLowerCase();
+  showProducts(products.filter(p =>
+    p.name.toLowerCase().includes(val)
+  ));
+});
 
-show();
+function orderWA() {
+  window.location.href =
+    "https://wa.me/919982104506?text=Hello%20Sunita%20Garments";
+}
