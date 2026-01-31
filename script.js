@@ -1,7 +1,20 @@
 const UPI_ID = "tamilsunita51@okhdfcbank";
 const WHATSAPP = "919982104506";
+const defaultProducts = [
+  {
+    cat: "Tops",
+    name: "Korean Green Shirt",
+    price: 499,
+    old: 1299,
+    img: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/refs/heads/main/korean-shirt2.jpg"
+  }
+];
 
-let products = JSON.parse(localStorage.getItem("products")) || [];
+let products = JSON.parse(localStorage.getItem("products"));
+if (!products || products.length === 0) {
+  products = defaultProducts;
+  localStorage.setItem("products", JSON.stringify(products));
+}
 let currentCat = "All";
 
 const grid = document.getElementById("grid");
@@ -87,4 +100,12 @@ function generateQR(amount) {
     <p>UPI ID: ${UPI_ID}</p>
     <p>Amount: ₹${amount}</p>
   `;
+}
+  function buyNow(name, price) {
+  const upiId = "tamilsunita51@okhdfcbank";
+
+  const upiUrl =
+    `upi://pay?pa=${upiId}&pn=Sunita Garments&am=${price}&cu=INR&tn=${encodeURIComponent(name)}`;
+
+  window.location.href = upiUrl;
 }
