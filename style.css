@@ -1,97 +1,33 @@
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#f5f5f5;
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-header{
-  background:#111;
-  color:#fff;
-  padding:15px;
-  text-align:center;
+.btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
 }
 
-header h2{
-  margin:0;
+.btn img {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 3px;
 }
 
-header input{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:6px;
-  border:none;
+.wa {
+  background: #25D366;
 }
 
-.cats{
-  padding:10px;
-  text-align:center;
+.upi {
+  background: #673ab7;
 }
-
-.cats button{
-  margin:5px;
-  padding:8px 14px;
-  border:none;
-  border-radius:20px;
-  background:#222;
-  color:#fff;
-}
-
-#grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  padding:10px;
-}
-
-.card{
-  background:#fff;
-  padding:10px;
-  border-radius:10px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  text-align:center;
-}
-
-.card img{
-  width:100%;
-  border-radius:8px;
-}
-
-.card h4{
-  margin:8px 0 4px;
-  font-size:15px;
-}
-
-.card p{
-  margin:4px 0;
-  font-size:14px;
-}
-
-.card del{
-  color:#999;
-  font-size:13px;
-}
-
-.card button{
-  margin-top:6px;
-  padding:8px;
-  width:100%;
-  border:none;
-  border-radius:6px;
-  background:#25D366;
-  color:#fff;
-  font-size:14px;
-}
-
-.wa{
-  position:fixed;
-  bottom:15px;
-  left:15px;
-  right:15px;
-  background:#25D366;
-  color:#fff;
-  padding:15px;
-  border:none;
-  font-size:16px;
-  border-radius:10px;
-}  
