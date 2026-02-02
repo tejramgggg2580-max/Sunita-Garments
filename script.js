@@ -14,7 +14,7 @@ const products = [
   category: "Tops",
   price: 320,
   oldPrice: 3300,
-  image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/refs/heads/main/korean-shirt2.jpg"
+  image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/korean-shirt2.jpg"
 },
   {
     name: "Cotton Salwar Suit",
