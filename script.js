@@ -17,6 +17,13 @@ const products = [
   image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/korean-shirt2.jpg"
 },
   {
+  name: "Baggy Denim Jeans",
+  category: "Tops",
+  oldPrice: 350,
+  price: 2999,
+  image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/Light-Wash%20Baggy%20Denim%20Jeans.jpg"
+  }
+  {
     name: "Cotton Salwar Suit",
     category: "Salwar Suit",
     oldPrice: 2499,
