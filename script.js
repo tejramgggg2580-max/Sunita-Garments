@@ -3,24 +3,24 @@ const search = document.getElementById("search");
 
 const products = [
   {
-    name: "Designer Dress",
-    category: "Dresses",
+    name: "Korean-red Checkered Shirt",
+    category: "Branded men shirt",
     oldPrice: 2999,
-    price: 1499,
-    image: "https://images.unsplash.com/photo-1520975698519-59c1fdb9a1f7"
+    price: 320,
+    image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/Korean-red%20Checkered%20Shirt.jpg"
   },
   {
   name: "Korean shirt",
-  category: "Tops",
+  category: "Branded men shirt",
   price: 320,
-  oldPrice: 3300,
+  oldPrice: 2999,
   image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/korean-shirt2.jpg"
 },
   {
   name: "Baggy Denim Jeans",
-  category: "Tops",
-  oldPrice: 399,
-  price: 2999,
+  category: "Denim jeans",
+  oldPrice: 3900,
+  price: 399,
   image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/Light-Wash%20Baggy%20Denim%20Jeans.jpg"
   },
   {
