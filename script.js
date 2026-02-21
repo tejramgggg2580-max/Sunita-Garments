@@ -24,10 +24,10 @@ const products = [
   image: "https://raw.githubusercontent.com/tejramgggg2580-max/sunita-garments/main/Light-Wash%20Baggy%20Denim%20Jeans.jpg"
   },
   {
-    name: "Cotton Salwar Suit",
+    name: "Black t shirt",
     category: "Salwar Suit",
-    oldPrice: 2499,
-    price: 1299,
+    oldPrice: 499,
+    price: 99,
     image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990"
   }
 ];
